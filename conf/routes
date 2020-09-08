@@ -5,5 +5,22 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
+GET		/api/menuitems				controllers.MenuItemController.index
+GET		/api/menuitems/:id			controllers.MenuItemController.getMenuItem(id: String)
+POST	/api/menuitems				controllers.MenuItemController.createMenuItem(request: Request)
+PUT		/api/menuitems/:id			controllers.MenuItemController.modifyMenuItem(request: Request, id: String)
+DELETE	/api/menuitems/:id			controllers.MenuItemController.deleteMenuItem(id: String)
+
+GET     /api/orders                 controllers.OrderController.index
+GET     /api/orders/:id             controllers.OrderController.getOrder(id: String)
+GET     /api/myorders/:username     controllers.OrderController.getMyOrders(username: String)
+POST	/api/orders				    controllers.OrderController.createOrder(request: Request)
+PUT		/api/orders/:id			    controllers.OrderController.modifyOrder(request: Request, id: String)
+DELETE	/api/orders/:id			    controllers.OrderController.deleteOrder(id: String)
+
+###GET     /swagger.json           controllers.ApiHelpController.getResources
+GET     /docs/swagger-ui/*file        controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
