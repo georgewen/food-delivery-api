@@ -7,6 +7,24 @@ GET     /                           controllers.HomeController.index
 
 GET		/api/menuitems				controllers.MenuItemController.index
 GET		/api/menuitems/:id			controllers.MenuItemController.getMenuItem(id: String)
+
+###
+ #  summary: create an menu item
+ #  parameters:
+ #    - in: body
+ #      name: menuitem
+ #      schema:
+ #        $ref: '#/definitions/MenuItem'
+ #  responses:
+ #    "400":
+ #      description: "The provided JSON in the body is invalid OR unknown error"
+ #      schema:
+ #        $ref: '#/definitions/ErrorResponse'
+ #    "201":
+ #      description: "The menu item is created"
+ #      schema:
+ #        $ref: '#/definitions/MenuItemResponse'
+ ###
 POST	/api/menuitems				controllers.MenuItemController.createMenuItem(request: Request)
 PUT		/api/menuitems/:id			controllers.MenuItemController.modifyMenuItem(request: Request, id: String)
 DELETE	/api/menuitems/:id			controllers.MenuItemController.deleteMenuItem(id: String)

@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Expense Tracker API",
-    "description": "Expense Tracker description"
+    "title": "Drop Bear Eats API",
+    "description": "Food Delivery description"
   },
   "host": "localhost:9000",
   "schemes": [
@@ -15,14 +15,14 @@
     "application/json"
   ],
   "definitions": {
-    "ExpenseResponse": {
+    "MenuItemResponse": {
       "type": "object",
       "required": [
         "data"
       ],
       "properties": {
         "data": {
-          "$ref": "#/definitions/FullExpense"
+          "$ref": "#/definitions/FullMenuItem"
         }
       }
     },
@@ -38,7 +38,7 @@
         }
       }
     },
-    "FullExpense": {
+    "FullMenuItem": {
       "allOf": [
         {
           "properties": {
@@ -49,34 +49,39 @@
           }
         },
         {
-          "$ref": "#/definitions/Expense"
+          "$ref": "#/definitions/MenuItem"
         }
       ]
     },
-    "Expense": {
+    "MenuItem": {
       "type": "object",
       "required": [
-        "date",
-        "category",
-        "amount",
+        "name",
+        "price",
+        "restaurant",
+        "image",
         "description"
       ],
       "properties": {
-        "date": {
+        "name": {
           "type": "string",
-          "example": "2020-12-25"
+          "example": "pizza"
         },
-        "category": {
+        "price": {
+          "type": "number",
+          "example": "12.34"
+        },
+        "restaurant": {
           "type": "string",
-          "example": "meal"
+          "example": "Domino"
+        },
+        "image": {
+          "type": "string",
+          "example": "2.jpg"
         },
         "description": {
           "type": "string",
           "example": "My description"
-        },
-        "amount": {
-          "type": "number",
-          "example": 5000
         }
       }
     }
