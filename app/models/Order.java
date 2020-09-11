@@ -33,7 +33,7 @@ public class Order {
     }*/
 
     @Id
-    private String ordernumber;
+    private String _id;
     private String orderdate;
     private float subtotal;
     private String status;
@@ -42,8 +42,8 @@ public class Order {
 
     public Order(){}
 
-    public Order(String ordernumber, String orderdate, float subtotal, String status, String username, List<OrderLine> orderlines) {
-        this.ordernumber = ordernumber;
+    public Order(String id, String orderdate, float subtotal, String status, String username, List<OrderLine> orderlines) {
+        this._id = id;
         this.orderdate = orderdate;
         this.subtotal = subtotal;
         this.status = status;
@@ -51,12 +51,12 @@ public class Order {
         this.orderlines = orderlines;
     }
 
-    public String getOrdernumber() {
-        return ordernumber;
+    public String getid() {
+        return _id;
     }
 
-    public void setOrdernumber(String ordernumber) {
-        this.ordernumber = ordernumber;
+    public void setid(String id) {
+        this._id = id;
     }
 
     public String getOrderdate() {
@@ -103,7 +103,7 @@ public class Order {
 
 /*
 {
-    OrderNumber:1,
+    id:1,
     OrderDate: '2020-07-01',
     SubTotal: 59.24,
     Status: 'Processing',

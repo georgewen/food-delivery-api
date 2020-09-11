@@ -7,7 +7,7 @@ import dev.morphia.annotations.Id;
 @Entity("menuitems")
 public class MenuItem {
     @Id
-    private String id;
+    private String _id;
     private String name;
     private float price;
     private int qty;
@@ -18,7 +18,7 @@ public class MenuItem {
     public MenuItem(){}
 
     public MenuItem(String id, String name, int price, int qty, String restaurant, String image, String description) {
-        this.id = id;
+        this._id = id;
         this.name = name;
         this.price = price;
         this.qty = qty;
@@ -28,11 +28,11 @@ public class MenuItem {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getName() {

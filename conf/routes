@@ -31,7 +31,7 @@ DELETE	/api/menuitems/:id			controllers.MenuItemController.deleteMenuItem(id: St
 
 GET     /api/orders                 controllers.OrderController.index
 GET     /api/orders/:id             controllers.OrderController.getOrder(id: String)
-GET     /api/myorders/:username     controllers.OrderController.getMyOrders(username: String)
+GET     /api/orders/user/:username     controllers.OrderController.getMyOrders(username: String)
 POST	/api/orders				    controllers.OrderController.createOrder(request: Request)
 PUT		/api/orders/:id			    controllers.OrderController.modifyOrder(request: Request, id: String)
 DELETE	/api/orders/:id			    controllers.OrderController.deleteOrder(id: String)
