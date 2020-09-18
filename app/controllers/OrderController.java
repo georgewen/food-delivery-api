@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.inject.Inject;
 import models.MenuItem;
@@ -49,16 +50,19 @@ public class OrderController extends Controller {
     }
 
     public Result modifyOrder(Http.Request request, String id) {
+        String name = "";
         try {
+            JsonNode json = request.body().asJson();
+            name = json.toString(); //json.findPath("username").textValue();
             Optional<Order> item = request.body().parseJson(Order.class);
             orderService.update(id,item.orElseThrow(IllegalArgumentException::new));
             return ok(jsonResponse("message", "the item is modified"));
         } catch	(NoSuchElementException e) {
             return badRequest(jsonResponse("message", "the item does not exist"));
         } catch	(IllegalArgumentException e) {
-            return badRequest(jsonResponse("message", "Expecting JSON data"));
+            return badRequest(jsonResponse("message", "Expecting JSON data" + name ));
         } catch (NoSuchMethodException e) {
-            return badRequest(jsonResponse("message", "THe key does not exist"));
+            return badRequest(jsonResponse("message", "THe key does not exist" + name));
         } catch (Exception e) {
             return badRequest(jsonResponse("message", "ERROR: " + e.getMessage()));
         }

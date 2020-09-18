@@ -6,6 +6,7 @@
 GET     /                           controllers.HomeController.index
 
 GET		/api/menuitems				controllers.MenuItemController.index
+
 GET		/api/menuitems/:id			controllers.MenuItemController.getMenuItem(id: String)
 
 ###
@@ -36,6 +37,10 @@ POST	/api/orders				    controllers.OrderController.createOrder(request: Request
 PUT		/api/orders/:id			    controllers.OrderController.modifyOrder(request: Request, id: String)
 DELETE	/api/orders/:id			    controllers.OrderController.deleteOrder(id: String)
 
+# sse
+GET     /api/sse                   controllers.NotificationController.notification()
+# websocket
+GET     /api/ws                    controllers.ChatController.websocket()
 ###GET     /swagger.json           controllers.ApiHelpController.getResources
 GET     /docs/swagger-ui/*file        controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
 

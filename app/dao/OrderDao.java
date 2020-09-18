@@ -44,6 +44,8 @@ public class OrderDao implements  Dao<Order> {
         for(Field f : Order.class.getDeclaredFields()) {
             String fieldName = f.getName();
             if(fieldName.equals("id")) continue;
+            if(!fieldName.equals("orderdate") && !fieldName.equals("subtotal") && !fieldName.equals("status") && !fieldName.equals("username")) continue;
+
             Method m = Order.class.getMethod("get" + fieldName.substring(0,1).toUpperCase() + fieldName.substring(1));
             //check if value is null
             if(m.invoke(order) == null) continue;
